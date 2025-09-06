@@ -1,0 +1,125 @@
+./frontend/node_modules
+.DS_Store
+dist
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.vscode
+.idea
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage
+.cache
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Sonner toast notifications
+sonner
+*.tsbuildinfo
+.next
+out
+build
+
+# If you have a .env file for the backend, ignore it as well
+backend/.env
+backend/__pycache__
+backend/*.pyc
+backend/.pytest_cache
+backend/.mypy_cache
+backend/venv
+backend/env
+backend/.vscode
+backend/.idea
+backend/*.log
+backend/*.sqlite
+backend/.DS_Store
+backend/.pytest_cache
+backend/.mypy_cache
+backend/.coverage
+backend/instance
+backend/*.egg-info
+backend/dist
+backend/build
+backend/.env
+backend/.env.local
+backend/.env.development
+backend/.env.test
+backend/.env.production
+backend/.python-version
+backend/.pylintrc
+backend/.flake8
+backend/.isort.cfg
+backend/.pre-commit-config.yaml
+backend/.tox
+backend/.ruff.toml
+backend/.ropeproject
+backend/.vscode
+backend/.idea
+backend/.pytest_cache
+backend/.mypy_cache
+backend/.coverage
+
+# Ignore any other files or directories you want to exclude
+# from version control
+
+# Example: Ignore MacOS system files
+.DS_Store
+Thumbs.db
+.idea/
+
+# Ignore environment variable files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.test
+.env.development
+.env.production.local
+.env.test.local
+.env.development.local
+# Ignore log files
+*.log
+npm-debug.log*
+
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# Ignore build output directories
+dist/
+build/
+.next/
+out/
+.cache/
+# Ignore coverage reports
+coverage/
+# Ignore dependency directories
+node_modules/
+# Ignore editor directories
+.vscode/
+.idea/
+
+# Ignore Python specific files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Ignore virtual environment directories
+venv/
+env/
+.backend-venv/
+.backend-env/
+# Ignore test and cache directories
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+backend/sih
