@@ -10,6 +10,9 @@ import {
   Cog,
   Users,
   GalleryVerticalEnd,
+  Lightbulb,
+  TestTube2,
+  AlertTriangle,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -49,23 +52,23 @@ const data = {
       items: [
         {
           title: "Ics Breaking Capacity Test",
-          url: "/standard-tests/ics",
+          url: "/tests/ics-breaking",
         },
         {
           title: "Overcurrent Protection Test",
-          url: "/standard-tests/overcurrent",
+          url: "/tests/overcurrent",
         },
         {
           title: "Short-Circuit Test (10kA)",
-          url: "/standard-tests/short-circuit",
+          url: "/tests/short-circuit",
         },
         {
           title: "Single Pole MCB Test",
-          url: "/standard-tests/single-pole",
+          url: "/tests/single-pole",
         },
         {
           title: "Multi-Pole MCB Test",
-          url: "/standard-tests/multi-pole",
+          url: "/tests/multi-pole",
         },
       ],
     },
@@ -140,7 +143,7 @@ const data = {
       ],
     },
   ],
-  projects: [
+  project: [
     {
       name: "IEC 60898-1 Compliance",
       url: "/projects/iec-compliance",
@@ -156,6 +159,21 @@ const data = {
       url: "/projects/safety",
       icon: SlidersHorizontal,
     },
+    {
+      name: "Problem Statement",
+      url: "/projects/problem-statement",
+      icon: AlertTriangle,
+    },
+    {
+      name: "Our Proposed Solution",
+      url: "/projects/solution",
+      icon: Lightbulb,
+    },
+    {
+      name: "Test Cases & Diagnostics",
+      url: "/projects/diagnostics",
+      icon: TestTube2,
+    },
   ],
 }
 
@@ -163,9 +181,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   // Get user data from localStorage
   const userData = localStorage.getItem('user');
   const user = userData ? JSON.parse(userData) : {
-    name: "Guest",
+    name: "Guest User",
     email: "guest@example.com",
     avatar: "/avatars/guest.jpg",
+  };
+
+  // Use proper name and email from user data
+  const displayUser = {
+    name: user.username || user.name || "Guest User",
+    email: user.email || "guest@example.com",
+    avatar: user.avatar || "/avatars/default.jpg"
   };
 
   return (
@@ -175,14 +200,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavProjects project={data.project} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={{
-          name: user.name,
-          email: user.email,
-          avatar: user.avatar || "/avatars/default.jpg"
-        }} />
+        <NavUser user={displayUser} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

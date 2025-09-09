@@ -12,11 +12,15 @@ import { Label } from "@/components/ui/label"
 
 interface LoginFormProps extends React.ComponentProps<"div"> {
   onForgotPassword?: () => void
+  isLoading?: boolean
+  error?: string
 }
 
 export function LoginForm({
   className,
   onForgotPassword,
+  isLoading = false,
+  error,
   ...props
 }: LoginFormProps) {
   return (
@@ -26,10 +30,19 @@ export function LoginForm({
           <CardTitle>Login to your account</CardTitle>
           <CardDescription>
             Enter your username below to login to your account
+            <br />
+            <span className="text-sm font-medium text-blue-600 mt-2 block">
+              Demo Accounts: admin/admin123 | engineer/engineer123 | operator/operator123 | viewer/viewer123
+            </span>
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-6">
+            {error && (
+              <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded text-sm">
+                {error}
+              </div>
+            )}
             <div className="grid gap-3">
               <Label htmlFor="username">Username</Label>
               <Input
@@ -37,8 +50,10 @@ export function LoginForm({
                 name="username"
                 type="text"
                 placeholder="Enter your username"
-                autoComplete="off"
+                autoComplete="username"
                 required
+                disabled={isLoading}
+                defaultValue="admin"
               />
             </div>
             <div className="grid gap-3">
@@ -48,15 +63,24 @@ export function LoginForm({
                   type="button"
                   onClick={onForgotPassword}
                   className="ml-auto inline-block text-sm underline-offset-4 hover:underline text-blue-600"
+                  disabled={isLoading}
                 >
                   Forgot your password?
                 </button>
               </div>
-              <Input id="password" name="password" type="password" autoComplete="off" required />
+              <Input 
+                id="password" 
+                name="password" 
+                type="password" 
+                autoComplete="current-password" 
+                required 
+                disabled={isLoading}
+                defaultValue="admin123"
+              />
             </div>
             <div className="flex flex-col gap-3">
-              <Button type="submit" className="w-full">
-                Login
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Signing in..." : "Login"}
               </Button>
             </div>
           </div>

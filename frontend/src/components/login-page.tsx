@@ -27,14 +27,34 @@ export function LoginPage() {
     const username = formData.get('username') as string
     const password = formData.get('password') as string
 
+    if (!username || !password) {
+      setError("Please enter both username and password")
+      setIsLoading(false)
+      return
+    }
+
     try {
       const response = await auth.login({ username, password })
 
       if (response.success) {
+        console.log('Login successful, redirecting to dashboard')
         navigate('/dashboard')
+      } else {
+        setError(response.message || 'Login failed')
       }
     } catch (error: any) {
-      setError(error.message || 'Login failed')
+      console.error('Login error:', error)
+      
+      // Handle different types of errors
+      if (error.response?.status === 401) {
+        setError('Invalid username or password')
+      } else if (error.response?.status === 500) {
+        setError('Server error. Please try again later.')
+      } else if (error.code === 'NETWORK_ERROR') {
+        setError('Network error. Please check your connection.')
+      } else {
+        setError(error.response?.data?.message || error.message || 'Login failed. Please try again.')
+      }
     } finally {
       setIsLoading(false)
     }
@@ -101,7 +121,11 @@ export function LoginPage() {
 
   const renderLogin = () => (
     <form onSubmit={handleLogin}>
-      <LoginForm onForgotPassword={() => setPageState('forgot-password')} />
+      <LoginForm 
+        onForgotPassword={() => setPageState('forgot-password')} 
+        isLoading={isLoading}
+        error={error}
+      />
     </form>
   )
 
@@ -261,7 +285,7 @@ export function LoginPage() {
           <h1 className="text-3xl font-bold text-gray-900">{getPageTitle()}</h1>
           <p className="text-gray-600 mt-2">{getPageDescription()}</p>
         </div>
-        {error && (
+        {error && pageState !== 'login' && (
           <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
             {error}
           </div>

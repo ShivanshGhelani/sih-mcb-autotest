@@ -85,4 +85,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db=Depends(get_d
     if user is None:
         raise credentials_exception
     
+    # Convert ObjectId to string for serialization
+    user["_id"] = str(user["_id"])
+    
     return user

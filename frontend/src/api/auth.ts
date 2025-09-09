@@ -44,10 +44,19 @@ export const auth = {
   },
 
   // Logout user
-  logout: (): void => {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
-    window.location.href = '/';
+  logout: async (): Promise<void> => {
+    try {
+      // Call backend logout endpoint
+      await api.post('/auth/logout');
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Continue with local logout even if backend call fails
+    } finally {
+      // Clear local storage and redirect
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('user');
+      window.location.href = '/';
+    }
   },
 
   // Get current user data from localStorage

@@ -1,0 +1,172 @@
+[
+  {
+    "_id": "TC_REDUCED_CURRENT_16A",
+    "mcbModel": "16A, All Types",
+    "testDesignation": "Verification at Reduced Current",
+    "prospectiveCurrent_A": 500,
+    "powerFactor_cos_phi": 0.95,
+    "testVoltage_V": 252,
+    "recoveryVoltage_V": 264,
+    "operatingDuty": "6xO_3xCO",
+    "r_config_code": "R_BANK_A",
+    "xl_config_code": "XL_BANK_A",
+    "mimic": {
+      "r_blinks": 9,
+      "xl_blinks": 1
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_ICS_6000A_16A_C",
+    "mcbModel": "16A, Type C",
+    "testDesignation": "Ics (Service Capacity)",
+    "prospectiveCurrent_A": 6000,
+    "powerFactor_cos_phi": 0.75,
+    "testVoltage_V": 252,
+    "recoveryVoltage_V": 264,
+    "operatingDuty": "O-t-O-t-CO",
+    "r_config_code": "R_BANK_B",
+    "xl_config_code": "XL_BANK_B_FINE_1",
+    "mimic": {
+      "r_blinks": 8,
+      "xl_blinks": 2
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_ICN_10000A_32A_B",
+    "mcbModel": "32A, Type B",
+    "testDesignation": "Icn (Ultimate Capacity)",
+    "prospectiveCurrent_A": 10000,
+    "powerFactor_cos_phi": 0.5,
+    "testVoltage_V": 252,
+    "recoveryVoltage_V": 264,
+    "operatingDuty": "O-t-CO",
+    "r_config_code": "R_BANK_C",
+    "xl_config_code": "XL_BANK_C_FINE_2",
+    "mimic": {
+      "r_blinks": 5,
+      "xl_blinks": 5
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_SHORT_CIRCUIT_6A_A",
+    "mcbModel": "6A, Type A",
+    "testDesignation": "Short-Circuit Test (Low Current)",
+    "prospectiveCurrent_A": 1000,
+    "powerFactor_cos_phi": 0.85,
+    "testVoltage_V": 230,
+    "recoveryVoltage_V": 240,
+    "operatingDuty": "3xO_CO",
+    "r_config_code": "R_BANK_A",
+    "xl_config_code": "XL_BANK_A_FINE_1",
+    "mimic": {
+      "r_blinks": 7,
+      "xl_blinks": 3
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_THERMAL_OVERLOAD_25A",
+    "mcbModel": "25A, All Types",
+    "testDesignation": "Thermal Overload Protection",
+    "prospectiveCurrent_A": 200,
+    "powerFactor_cos_phi": 1.0,
+    "testVoltage_V": 230,
+    "recoveryVoltage_V": 240,
+    "operatingDuty": "THERMAL_TEST",
+    "r_config_code": "R_BANK_THERMAL",
+    "xl_config_code": "XL_BANK_MINIMAL",
+    "mimic": {
+      "r_blinks": 2,
+      "xl_blinks": 1
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_MULTI_POLE_40A_C",
+    "mcbModel": "40A, Type C, 3-Pole",
+    "testDesignation": "Multi-Pole Breaking Capacity",
+    "prospectiveCurrent_A": 4500,
+    "powerFactor_cos_phi": 0.8,
+    "testVoltage_V": 400,
+    "recoveryVoltage_V": 415,
+    "operatingDuty": "2xO_CO",
+    "r_config_code": "R_BANK_B",
+    "xl_config_code": "XL_BANK_B_FINE_2",
+    "mimic": {
+      "r_blinks": 6,
+      "xl_blinks": 4
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_OVERCURRENT_50A_D",
+    "mcbModel": "50A, Type D",
+    "testDesignation": "Overcurrent Protection Verification",
+    "prospectiveCurrent_A": 800,
+    "powerFactor_cos_phi": 0.9,
+    "testVoltage_V": 230,
+    "recoveryVoltage_V": 240,
+    "operatingDuty": "5xO_2xCO",
+    "r_config_code": "R_BANK_A",
+    "xl_config_code": "XL_BANK_A_FINE_2",
+    "mimic": {
+      "r_blinks": 4,
+      "xl_blinks": 6
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_ULTIMATE_63A_C",
+    "mcbModel": "63A, Type C",
+    "testDesignation": "Ultimate Breaking Capacity (Icn)",
+    "prospectiveCurrent_A": 10000,
+    "powerFactor_cos_phi": 0.5,
+    "testVoltage_V": 230,
+    "recoveryVoltage_V": 240,
+    "operatingDuty": "O-t-CO",
+    "r_config_code": "R_BANK_C",
+    "xl_config_code": "XL_BANK_C_FINE_3",
+    "mimic": {
+      "r_blinks": 3,
+      "xl_blinks": 7
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_DIELECTRIC_TEST_ALL",
+    "mcbModel": "All Ratings",
+    "testDesignation": "Dielectric Strength Test",
+    "prospectiveCurrent_A": 0,
+    "powerFactor_cos_phi": 1.0,
+    "testVoltage_V": 2500,
+    "recoveryVoltage_V": 2500,
+    "operatingDuty": "DIELECTRIC_1MIN",
+    "r_config_code": "R_BANK_ISOLATION",
+    "xl_config_code": "XL_BANK_ISOLATION",
+    "mimic": {
+      "r_blinks": 10,
+      "xl_blinks": 10
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  },
+  {
+    "_id": "TC_INSULATION_RESISTANCE",
+    "mcbModel": "All Ratings",
+    "testDesignation": "Insulation Resistance Measurement",
+    "prospectiveCurrent_A": 0,
+    "powerFactor_cos_phi": 1.0,
+    "testVoltage_V": 500,
+    "recoveryVoltage_V": 500,
+    "operatingDuty": "INSULATION_TEST",
+    "r_config_code": "R_BANK_MEGGER",
+    "xl_config_code": "XL_BANK_MEGGER",
+    "mimic": {
+      "r_blinks": 1,
+      "xl_blinks": 9
+    },
+    "lastUpdated": "2025-09-09T09:00:00Z"
+  }
+]

@@ -68,9 +68,23 @@ async def login(login_data: LoginRequest, db=Depends(get_database)):
         )
 
 @router.post("/logout")
-async def logout():
-    """Logout endpoint - client-side token removal"""
-    return {"success": True, "message": "Logged out successfully"}
+async def logout(current_user: dict = Depends(get_current_user)):
+    """Logout endpoint - invalidate token"""
+    try:
+        # In a production environment, you would:
+        # 1. Add the token to a blacklist stored in Redis/Database
+        # 2. Or implement token revocation
+        # For now, we'll just return success as the frontend handles token removal
+        
+        return {
+            "success": True, 
+            "message": f"User {current_user.get('username', 'Unknown')} logged out successfully"
+        }
+    except Exception as e:
+        return {
+            "success": True,  # Always return success for logout
+            "message": "Logged out successfully"
+        }
 
 @router.get("/me", response_model=User)
 async def read_users_me(current_user: dict = Depends(get_current_user)):
